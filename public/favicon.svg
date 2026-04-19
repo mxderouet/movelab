@@ -2,42 +2,42 @@
   <rect width="32" height="32" rx="4" fill="#111111"/>
 
   <!-- Row 1: Kick — steps 1,5 -->
-  <rect x="1"  y="1" width="2.5" height="6.5" rx="0.5" fill="#FF7700"/>
-  <rect x="5"  y="1" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="9"  y="1" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="13" y="1" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="17" y="1" width="2.5" height="6.5" rx="0.5" fill="#FF7700"/>
-  <rect x="21" y="1" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="25" y="1" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="29" y="1" width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="1"  y="2"    width="2.5" height="6.5" rx="0.5" fill="#FF7700"/>
+  <rect x="5"  y="2"    width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="9"  y="2"    width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="13" y="2"    width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="17" y="2"    width="2.5" height="6.5" rx="0.5" fill="#FF7700"/>
+  <rect x="21" y="2"    width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="25" y="2"    width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="29" y="2"    width="2.5" height="6.5" rx="0.5" fill="#222"/>
 
   <!-- Row 2: Snare — steps 3,7 -->
-  <rect x="1"  y="9" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="5"  y="9" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="9"  y="9" width="2.5" height="6.5" rx="0.5" fill="#00AAFF"/>
-  <rect x="13" y="9" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="17" y="9" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="21" y="9" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="25" y="9" width="2.5" height="6.5" rx="0.5" fill="#00AAFF"/>
-  <rect x="29" y="9" width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="1"  y="9.5"  width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="5"  y="9.5"  width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="9"  y="9.5"  width="2.5" height="6.5" rx="0.5" fill="#00AAFF"/>
+  <rect x="13" y="9.5"  width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="17" y="9.5"  width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="21" y="9.5"  width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="25" y="9.5"  width="2.5" height="6.5" rx="0.5" fill="#00AAFF"/>
+  <rect x="29" y="9.5"  width="2.5" height="6.5" rx="0.5" fill="#222"/>
 
-  <!-- Row 3: Hi-hat — every step -->
-  <rect x="1"  y="17" width="2.5" height="6.5" rx="0.5" fill="#FFE500"/>
-  <rect x="5"  y="17" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="9"  y="17" width="2.5" height="6.5" rx="0.5" fill="#FFE500"/>
-  <rect x="13" y="17" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="17" y="17" width="2.5" height="6.5" rx="0.5" fill="#FFE500"/>
-  <rect x="21" y="17" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="25" y="17" width="2.5" height="6.5" rx="0.5" fill="#FFE500"/>
-  <rect x="29" y="17" width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <!-- Row 3: Hi-hat — every other step -->
+  <rect x="1"  y="17"   width="2.5" height="6.5" rx="0.5" fill="#FFE500"/>
+  <rect x="5"  y="17"   width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="9"  y="17"   width="2.5" height="6.5" rx="0.5" fill="#FFE500"/>
+  <rect x="13" y="17"   width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="17" y="17"   width="2.5" height="6.5" rx="0.5" fill="#FFE500"/>
+  <rect x="21" y="17"   width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="25" y="17"   width="2.5" height="6.5" rx="0.5" fill="#FFE500"/>
+  <rect x="29" y="17"   width="2.5" height="6.5" rx="0.5" fill="#222"/>
 
   <!-- Row 4: Clap — steps 3,7 -->
-  <rect x="1"  y="25" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="5"  y="25" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="9"  y="25" width="2.5" height="6.5" rx="0.5" fill="#FF2266"/>
-  <rect x="13" y="25" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="17" y="25" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="21" y="25" width="2.5" height="6.5" rx="0.5" fill="#222"/>
-  <rect x="25" y="25" width="2.5" height="6.5" rx="0.5" fill="#FF2266"/>
-  <rect x="29" y="25" width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="1"  y="24.5" width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="5"  y="24.5" width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="9"  y="24.5" width="2.5" height="6.5" rx="0.5" fill="#FF2266"/>
+  <rect x="13" y="24.5" width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="17" y="24.5" width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="21" y="24.5" width="2.5" height="6.5" rx="0.5" fill="#222"/>
+  <rect x="25" y="24.5" width="2.5" height="6.5" rx="0.5" fill="#FF2266"/>
+  <rect x="29" y="24.5" width="2.5" height="6.5" rx="0.5" fill="#222"/>
 </svg>
