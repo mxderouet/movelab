@@ -30,24 +30,24 @@ export default function App() {
 
       {/* Top bar */}
       <header style={{
-        height: 40,
+        height: 44,
         background: "var(--bg-1)",
         borderBottom: "1px solid var(--border)",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "0 16px",
+        padding: "0 20px",
         flexShrink: 0,
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text-primary)", letterSpacing: 1 }}>
+          <span style={{ fontSize: 15, fontWeight: 700, color: "var(--text-primary)", letterSpacing: 1 }}>
             MOVE<span style={{ color: genre.color }}>LAB</span>
           </span>
-          <span style={{ fontSize: 10, color: "var(--text-muted)", letterSpacing: 1 }}>
+          <span style={{ fontSize: 12, color: "var(--text-muted)", letterSpacing: 1 }}>
             Ableton Move reference
           </span>
         </div>
-        <div style={{ fontSize: 11, color: genre.color, fontWeight: 700 }}>
+        <div style={{ fontSize: 13, color: genre.color, fontWeight: 700 }}>
           {genre.bpm.sweet} BPM · {genre.label}
         </div>
       </header>
@@ -56,7 +56,7 @@ export default function App() {
       <div style={{
         background: "var(--bg-1)",
         borderBottom: "1px solid var(--border)",
-        padding: "6px 16px",
+        padding: "6px 20px",
         display: "flex",
         alignItems: "center",
         gap: 2,
@@ -68,11 +68,11 @@ export default function App() {
             key={key}
             onClick={() => handleGenreChange(key)}
             style={{
-              padding: "5px 14px",
+              padding: "5px 16px",
               background: genreKey === key ? g.color : "transparent",
               color: genreKey === key ? "#000" : "var(--text-secondary)",
               borderRadius: 2,
-              fontSize: 11,
+              fontSize: 13,
               fontWeight: genreKey === key ? 700 : 400,
               transition: "background 0.1s",
               whiteSpace: "nowrap",
@@ -81,7 +81,7 @@ export default function App() {
             {g.label}
           </button>
         ))}
-        <span style={{ fontSize: 11, color: "var(--text-muted)", marginLeft: 8, fontStyle: "italic", flexShrink: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+        <span style={{ fontSize: 12, color: "var(--text-muted)", marginLeft: 8, fontStyle: "italic", flexShrink: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
           {genre.feel}
         </span>
       </div>
@@ -91,7 +91,7 @@ export default function App() {
         background: "var(--bg-1)",
         borderBottom: "1px solid var(--border)",
         display: "flex",
-        padding: "0 16px",
+        padding: "0 20px",
         flexShrink: 0,
       }}>
         {TABS.map((t) => (
@@ -99,11 +99,11 @@ export default function App() {
             key={t.id}
             onClick={() => setTab(t.id)}
             style={{
-              padding: "8px 14px",
+              padding: "10px 16px",
               background: "transparent",
               color: tab === t.id ? genre.color : "var(--text-secondary)",
               borderBottom: `2px solid ${tab === t.id ? genre.color : "transparent"}`,
-              fontSize: 11,
+              fontSize: 13,
               fontWeight: tab === t.id ? 700 : 400,
               letterSpacing: 0.5,
               marginBottom: -1,
@@ -115,7 +115,7 @@ export default function App() {
       </div>
 
       {/* Content */}
-      <main style={{ flex: 1, overflowY: "auto", padding: 20, maxWidth: 760, width: "100%" }}>
+      <main style={{ flex: 1, overflowY: "auto", padding: 24, maxWidth: 960, width: "100%" }}>
         {tab === "drums"     && <DrumGrid key={genreKey} genre={genre} />}
         {tab === "bass"      && <BassSection key={genreKey} genre={genre} />}
         {tab === "tracks"    && <TracksSection genre={genre} />}

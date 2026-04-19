@@ -2,7 +2,7 @@ export default function StructureSection({ genre }) {
   return (
     <div>
       {/* Timeline bar */}
-      <div style={{ display: "flex", gap: 2, marginBottom: 16 }}>
+      <div style={{ display: "flex", gap: 2, marginBottom: 20 }}>
         {genre.structure.map((s, i) => {
           const alpha = Math.round(80 + (i / (genre.structure.length - 1)) * 140).toString(16).padStart(2, "0");
           return (
@@ -11,13 +11,13 @@ export default function StructureSection({ genre }) {
               title={s.desc}
               style={{
                 flex: 1,
-                height: 28,
+                height: 32,
                 background: genre.color + alpha,
                 borderRadius: 2,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: 8,
+                fontSize: 10,
                 fontWeight: 700,
                 color: "#000",
                 letterSpacing: 0.5,
@@ -38,17 +38,17 @@ export default function StructureSection({ genre }) {
           key={i}
           style={{
             display: "flex",
-            gap: 14,
-            padding: "10px 0",
+            gap: 16,
+            padding: "12px 0",
             borderBottom: "1px solid var(--border)",
             alignItems: "flex-start",
           }}
         >
-          <div style={{ width: 70, flexShrink: 0 }}>
-            <div style={{ fontSize: 12, color: genre.color, fontWeight: 700 }}>{s.name}</div>
-            <div style={{ fontSize: 10, color: "var(--text-muted)", marginTop: 2 }}>{s.bars} bars</div>
+          <div style={{ width: 80, flexShrink: 0 }}>
+            <div style={{ fontSize: 14, color: genre.color, fontWeight: 700 }}>{s.name}</div>
+            <div style={{ fontSize: 12, color: "var(--text-muted)", marginTop: 2 }}>{s.bars} bars</div>
           </div>
-          <div style={{ fontSize: 12, color: "var(--text-secondary)", lineHeight: 1.5 }}>{s.desc}</div>
+          <div style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.5 }}>{s.desc}</div>
         </div>
       ))}
 
@@ -56,10 +56,10 @@ export default function StructureSection({ genre }) {
         background: "var(--bg-2)",
         border: "1px solid var(--border)",
         borderRadius: 3,
-        padding: 12,
+        padding: 14,
         marginTop: 16,
       }}>
-        <div style={{ fontSize: 11, color: "var(--text-secondary)", lineHeight: 1.6 }}>
+        <div style={{ fontSize: 13, color: "var(--text-secondary)", lineHeight: 1.6 }}>
           Start with intro → drop → outro. Add transitions and breaks once the skeleton sounds right.
         </div>
       </div>

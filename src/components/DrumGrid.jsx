@@ -47,17 +47,17 @@ export default function DrumGrid({ genre }) {
   return (
     <div>
       {/* Variation tabs */}
-      <div style={{ display: "flex", gap: 4, marginBottom: 12, alignItems: "center", flexWrap: "wrap" }}>
+      <div style={{ display: "flex", gap: 4, marginBottom: 14, alignItems: "center", flexWrap: "wrap" }}>
         {genre.drumVariations.map((v, i) => (
           <button
             key={i}
             onClick={() => switchVar(i)}
             style={{
-              padding: "4px 10px",
+              padding: "5px 12px",
               background: drumVar === i ? genre.color : "var(--bg-3)",
               color: drumVar === i ? "#000" : "var(--text-secondary)",
               borderRadius: 2,
-              fontSize: 11,
+              fontSize: 13,
               fontWeight: 600,
               letterSpacing: 0.5,
             }}
@@ -65,21 +65,21 @@ export default function DrumGrid({ genre }) {
             {v.label.split("—")[0].trim()}
           </button>
         ))}
-        <span style={{ fontSize: 11, color: "var(--text-muted)", marginLeft: 4 }}>
+        <span style={{ fontSize: 12, color: "var(--text-muted)", marginLeft: 4 }}>
           {genre.drumVariations[drumVar].label.split("—")[1]?.trim()}
         </span>
       </div>
 
       {/* Controls */}
-      <div style={{ display: "flex", gap: 8, marginBottom: 14, alignItems: "center" }}>
+      <div style={{ display: "flex", gap: 8, marginBottom: 16, alignItems: "center" }}>
         <button
           onClick={togglePlay}
           style={{
-            padding: "5px 14px",
+            padding: "6px 16px",
             background: playing ? genre.color : "var(--bg-3)",
             color: playing ? "#000" : "var(--text-primary)",
             borderRadius: 2,
-            fontSize: 11,
+            fontSize: 13,
             fontWeight: 700,
             letterSpacing: 1,
           }}
@@ -90,30 +90,30 @@ export default function DrumGrid({ genre }) {
           <button
             onClick={() => setCustomPattern(null)}
             style={{
-              padding: "5px 10px",
+              padding: "6px 12px",
               background: "var(--bg-3)",
               color: "var(--text-secondary)",
               borderRadius: 2,
-              fontSize: 11,
+              fontSize: 13,
             }}
           >
             Reset
           </button>
         )}
-        <span style={{ fontSize: 11, color: "var(--text-muted)", marginLeft: 4 }}>
+        <span style={{ fontSize: 13, color: "var(--text-muted)", marginLeft: 4 }}>
           {genre.bpm.sweet} BPM
         </span>
       </div>
 
       {/* Step numbers */}
-      <div style={{ display: "flex", gap: 6, paddingLeft: 60, marginBottom: 4 }}>
+      <div style={{ display: "flex", gap: 6, paddingLeft: 66, marginBottom: 4 }}>
         {GROUPS.map((group, gi) => (
           <div key={gi} style={{ display: "flex", flex: 1, gap: 2 }}>
             {group.map(i => (
               <div key={i} style={{
                 flex: 1,
                 textAlign: "center",
-                fontSize: 9,
+                fontSize: 11,
                 color: step === i ? genre.color : "var(--text-muted)",
                 fontWeight: step === i ? 700 : 400,
               }}>
@@ -126,10 +126,10 @@ export default function DrumGrid({ genre }) {
 
       {/* Rows */}
       {ROWS.map(row => (
-        <div key={row} style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 3 }}>
+        <div key={row} style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
           <div style={{
-            width: 54,
-            fontSize: 10,
+            width: 60,
+            fontSize: 12,
             color: ROW_COLORS[row],
             textAlign: "right",
             paddingRight: 6,
@@ -150,7 +150,7 @@ export default function DrumGrid({ genre }) {
                     style={{
                       flex: 1,
                       minWidth: 0,
-                      height: 20,
+                      height: 26,
                       background: on
                         ? step === i ? ROW_COLORS[row] : ROW_COLORS[row] + "99"
                         : step === i ? "var(--bg-3)" : "var(--bg-2)",
@@ -168,7 +168,7 @@ export default function DrumGrid({ genre }) {
         </div>
       ))}
 
-      <div style={{ marginTop: 10, fontSize: 10, color: "var(--text-muted)" }}>
+      <div style={{ marginTop: 12, fontSize: 12, color: "var(--text-muted)" }}>
         Click cells to edit
       </div>
     </div>
