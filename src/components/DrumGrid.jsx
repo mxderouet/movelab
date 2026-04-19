@@ -42,10 +42,12 @@ export default function DrumGrid({ genre }) {
     }
   };
 
+  const GROUPS = [[0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13,14,15]];
+
   return (
     <div>
       {/* Variation tabs */}
-      <div style={{ display: "flex", gap: 4, marginBottom: 12, alignItems: "center" }}>
+      <div style={{ display: "flex", gap: 4, marginBottom: 12, alignItems: "center", flexWrap: "wrap" }}>
         {genre.drumVariations.map((v, i) => (
           <button
             key={i}
@@ -63,7 +65,7 @@ export default function DrumGrid({ genre }) {
             {v.label.split("—")[0].trim()}
           </button>
         ))}
-        <span style={{ fontSize: 11, color: "var(--text-muted)", marginLeft: 6 }}>
+        <span style={{ fontSize: 11, color: "var(--text-muted)", marginLeft: 4 }}>
           {genre.drumVariations[drumVar].label.split("—")[1]?.trim()}
         </span>
       </div>
@@ -104,57 +106,64 @@ export default function DrumGrid({ genre }) {
       </div>
 
       {/* Step numbers */}
-      <div style={{ display: "flex", paddingLeft: 62, marginBottom: 4, gap: 2 }}>
-        {Array.from({ length: 16 }, (_, i) => (
-          <div
-            key={i}
-            style={{
-              width: 24,
-              textAlign: "center",
-              fontSize: 9,
-              color: step === i ? genre.color : "var(--text-muted)",
-              fontWeight: step === i ? 700 : 400,
-              marginLeft: i > 0 && i % 4 === 0 ? 6 : 0,
-            }}
-          >
-            {i + 1}
+      <div style={{ display: "flex", gap: 6, paddingLeft: 60, marginBottom: 4 }}>
+        {GROUPS.map((group, gi) => (
+          <div key={gi} style={{ display: "flex", flex: 1, gap: 2 }}>
+            {group.map(i => (
+              <div key={i} style={{
+                flex: 1,
+                textAlign: "center",
+                fontSize: 9,
+                color: step === i ? genre.color : "var(--text-muted)",
+                fontWeight: step === i ? 700 : 400,
+              }}>
+                {i + 1}
+              </div>
+            ))}
           </div>
         ))}
       </div>
 
       {/* Rows */}
-      {ROWS.map((row) => (
-        <div key={row} style={{ display: "flex", alignItems: "center", gap: 2, marginBottom: 3 }}>
+      {ROWS.map(row => (
+        <div key={row} style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 3 }}>
           <div style={{
-            width: 56,
+            width: 54,
             fontSize: 10,
             color: ROW_COLORS[row],
             textAlign: "right",
-            paddingRight: 8,
+            paddingRight: 6,
             flexShrink: 0,
-            letterSpacing: 0.3,
             fontWeight: 600,
+            letterSpacing: 0.3,
           }}>
             {ROW_LABELS[row]}
           </div>
-          {pattern[row].map((on, i) => (
-            <div
-              key={i}
-              onClick={() => toggleCell(row, i)}
-              style={{
-                width: 24,
-                height: 24,
-                background: on
-                  ? step === i ? ROW_COLORS[row] : ROW_COLORS[row] + "99"
-                  : step === i ? "var(--bg-3)" : "var(--bg-2)",
-                border: `1px solid ${on ? ROW_COLORS[row] + "55" : "var(--border)"}`,
-                borderRadius: 2,
-                cursor: "pointer",
-                marginLeft: i > 0 && i % 4 === 0 ? 6 : 0,
-                transition: "background 0.05s",
-                boxShadow: on && step === i ? `0 0 6px ${ROW_COLORS[row]}88` : "none",
-              }}
-            />
+          {GROUPS.map((group, gi) => (
+            <div key={gi} style={{ display: "flex", flex: 1, gap: 2 }}>
+              {group.map(i => {
+                const on = pattern[row][i];
+                return (
+                  <div
+                    key={i}
+                    onClick={() => toggleCell(row, i)}
+                    style={{
+                      flex: 1,
+                      minWidth: 0,
+                      aspectRatio: "1",
+                      background: on
+                        ? step === i ? ROW_COLORS[row] : ROW_COLORS[row] + "99"
+                        : step === i ? "var(--bg-3)" : "var(--bg-2)",
+                      border: `1px solid ${on ? ROW_COLORS[row] + "55" : "var(--border)"}`,
+                      borderRadius: 2,
+                      cursor: "pointer",
+                      transition: "background 0.05s",
+                      boxShadow: on && step === i ? `0 0 6px ${ROW_COLORS[row]}88` : "none",
+                    }}
+                  />
+                );
+              })}
+            </div>
           ))}
         </div>
       ))}

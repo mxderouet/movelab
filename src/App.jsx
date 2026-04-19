@@ -56,12 +56,12 @@ export default function App() {
       <div style={{
         background: "var(--bg-1)",
         borderBottom: "1px solid var(--border)",
-        padding: "0 16px",
+        padding: "6px 16px",
         display: "flex",
         alignItems: "center",
         gap: 2,
-        height: 36,
         flexShrink: 0,
+        flexWrap: "wrap",
       }}>
         {Object.entries(GENRES).map(([key, g]) => (
           <button
@@ -75,12 +75,13 @@ export default function App() {
               fontSize: 11,
               fontWeight: genreKey === key ? 700 : 400,
               transition: "background 0.1s",
+              whiteSpace: "nowrap",
             }}
           >
             {g.label}
           </button>
         ))}
-        <span style={{ fontSize: 11, color: "var(--text-muted)", marginLeft: 12, fontStyle: "italic" }}>
+        <span style={{ fontSize: 11, color: "var(--text-muted)", marginLeft: 8, fontStyle: "italic", flexShrink: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
           {genre.feel}
         </span>
       </div>

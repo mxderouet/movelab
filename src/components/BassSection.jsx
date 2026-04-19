@@ -4,11 +4,12 @@ export default function BassSection({ genre }) {
   const [active, setActive] = useState(0);
 
   const pattern = genre.bassPatterns[active];
+  const GROUPS = [[0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13,14,15]];
 
   return (
     <div>
       {/* Variation tabs */}
-      <div style={{ display: "flex", gap: 4, marginBottom: 12, alignItems: "center" }}>
+      <div style={{ display: "flex", gap: 4, marginBottom: 12, alignItems: "center", flexWrap: "wrap" }}>
         {genre.bassPatterns.map((b, i) => (
           <button
             key={i}
@@ -23,66 +24,72 @@ export default function BassSection({ genre }) {
               letterSpacing: 0.5,
             }}
           >
-            {`B${i + 1}`}
+            B{i + 1}
           </button>
         ))}
-        <span style={{ fontSize: 11, color: "var(--text-muted)", marginLeft: 6 }}>
+        <span style={{ fontSize: 11, color: "var(--text-muted)", marginLeft: 4 }}>
           {pattern.label.split("—")[1]?.trim()}
         </span>
       </div>
 
       {/* Step numbers */}
-      <div style={{ display: "flex", paddingLeft: 62, marginBottom: 4, gap: 2 }}>
-        {Array.from({ length: 16 }, (_, i) => (
-          <div
-            key={i}
-            style={{
-              width: 34,
-              textAlign: "center",
-              fontSize: 9,
-              color: "var(--text-muted)",
-              marginLeft: i > 0 && i % 4 === 0 ? 6 : 0,
-            }}
-          >
-            {i + 1}
+      <div style={{ display: "flex", gap: 6, paddingLeft: 60, marginBottom: 4 }}>
+        {GROUPS.map((group, gi) => (
+          <div key={gi} style={{ display: "flex", flex: 1, gap: 2 }}>
+            {group.map(i => (
+              <div key={i} style={{
+                flex: 1,
+                textAlign: "center",
+                fontSize: 9,
+                color: "var(--text-muted)",
+              }}>
+                {i + 1}
+              </div>
+            ))}
           </div>
         ))}
       </div>
 
-      {/* Bass step grid */}
-      <div style={{ display: "flex", alignItems: "center", gap: 2, marginBottom: 16 }}>
+      {/* Bass step row */}
+      <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 16 }}>
         <div style={{
-          width: 56,
+          width: 54,
           fontSize: 10,
           color: genre.color,
           textAlign: "right",
-          paddingRight: 8,
+          paddingRight: 6,
           flexShrink: 0,
           fontWeight: 600,
-          letterSpacing: 0.3,
         }}>
           Bass
         </div>
-        {pattern.steps.map((note, i) => (
-          <div
-            key={i}
-            style={{
-              width: 34,
-              height: 30,
-              background: note ? genre.color + "99" : "var(--bg-2)",
-              border: `1px solid ${note ? genre.color + "55" : "var(--border)"}`,
-              borderRadius: 2,
-              marginLeft: i > 0 && i % 4 === 0 ? 6 : 0,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 9,
-              fontWeight: 700,
-              color: note ? "#fff" : "transparent",
-              letterSpacing: 0,
-            }}
-          >
-            {note}
+        {GROUPS.map((group, gi) => (
+          <div key={gi} style={{ display: "flex", flex: 1, gap: 2 }}>
+            {group.map(i => {
+              const note = pattern.steps[i];
+              return (
+                <div
+                  key={i}
+                  style={{
+                    flex: 1,
+                    minWidth: 0,
+                    height: 30,
+                    background: note ? genre.color + "99" : "var(--bg-2)",
+                    border: `1px solid ${note ? genre.color + "55" : "var(--border)"}`,
+                    borderRadius: 2,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 8,
+                    fontWeight: 700,
+                    color: note ? "#fff" : "transparent",
+                    overflow: "hidden",
+                  }}
+                >
+                  {note}
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>
@@ -101,7 +108,7 @@ export default function BassSection({ genre }) {
         </div>
       </div>
 
-      {/* All patterns overview (dimmed) */}
+      {/* All patterns overview */}
       <div style={{ fontSize: 10, color: "var(--text-muted)", letterSpacing: 2, textTransform: "uppercase", marginBottom: 10 }}>
         All patterns
       </div>
@@ -120,20 +127,23 @@ export default function BassSection({ genre }) {
             transition: "opacity 0.15s, border-color 0.15s",
           }}
         >
-          <div style={{ fontSize: 11, color: genre.color, fontWeight: 700, marginBottom: 6 }}>{b.label}</div>
-          <div style={{ display: "flex", gap: 2 }}>
-            {b.steps.map((note, j) => (
-              <div
-                key={j}
-                style={{
-                  width: 18,
-                  height: 18,
-                  background: note ? genre.color + "99" : "var(--bg-3)",
-                  border: `1px solid ${note ? genre.color + "44" : "var(--border)"}`,
-                  borderRadius: 2,
-                  marginLeft: j > 0 && j % 4 === 0 ? 4 : 0,
-                }}
-              />
+          <div style={{ fontSize: 11, color: genre.color, fontWeight: 700, marginBottom: 8 }}>{b.label}</div>
+          <div style={{ display: "flex", gap: 4 }}>
+            {GROUPS.map((group, gi) => (
+              <div key={gi} style={{ display: "flex", flex: 1, gap: 2 }}>
+                {group.map(j => (
+                  <div
+                    key={j}
+                    style={{
+                      flex: 1,
+                      height: 16,
+                      background: b.steps[j] ? genre.color + "99" : "var(--bg-3)",
+                      border: `1px solid ${b.steps[j] ? genre.color + "44" : "var(--border)"}`,
+                      borderRadius: 2,
+                    }}
+                  />
+                ))}
+              </div>
             ))}
           </div>
         </div>
