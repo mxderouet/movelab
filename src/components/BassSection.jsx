@@ -73,7 +73,6 @@ export default function BassSection({ genre }) {
                   style={{
                     flex: 1,
                     minWidth: 0,
-                    maxWidth: 28,
                     height: 22,
                     background: note ? genre.color + "99" : "var(--bg-2)",
                     border: `1px solid ${note ? genre.color + "55" : "var(--border)"}`,

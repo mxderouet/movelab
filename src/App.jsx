@@ -115,7 +115,7 @@ export default function App() {
       </div>
 
       {/* Content */}
-      <main style={{ flex: 1, overflowY: "auto", padding: 20 }}>
+      <main style={{ flex: 1, overflowY: "auto", padding: 20, maxWidth: 760, width: "100%" }}>
         {tab === "drums"     && <DrumGrid key={genreKey} genre={genre} />}
         {tab === "bass"      && <BassSection key={genreKey} genre={genre} />}
         {tab === "tracks"    && <TracksSection genre={genre} />}

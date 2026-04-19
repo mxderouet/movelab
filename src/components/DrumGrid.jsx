@@ -150,7 +150,6 @@ export default function DrumGrid({ genre }) {
                     style={{
                       flex: 1,
                       minWidth: 0,
-                      maxWidth: 28,
                       height: 20,
                       background: on
                         ? step === i ? ROW_COLORS[row] : ROW_COLORS[row] + "99"
